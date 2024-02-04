@@ -1,34 +1,42 @@
 <template>
-  <div class="App">
-    <XtxShortCut> </XtxShortCut>
-    <XtxHeaderNav></XtxHeaderNav>
-    <XtxBanner></XtxBanner>
-    <XtxNewGoods></XtxNewGoods>
-    <XtxHotBrand></XtxHotBrand>
-    <XtxTopic></XtxTopic>
-    <XtxFooter></XtxFooter>
-  </div>
+  <!-- 主体区域 -->
+  <section id="app">
+    <TodoHeader @add="handle"></TodoHeader>
+    <TodoMainer :list="list"></TodoMainer>
+    <TodoFooter></TodoFooter>
+</section>
 </template>
 
 <script>
-import XtxShortCut from './components/XtxShortCut'
-import XtxHeaderNav from './components/XtxHeaderNav'
-import XtxBanner from './components/XtxBanner'
-import XtxNewGoods from './components/XtxNewGoods'
-import XtxHotBrand from './components/XtxHotBrand'
-import XtxTopic from './components/XtxTopic'
-import XtxFooter from './components/XtxFooter'
+
+import TodoFooter from './components/TodoFooter'
+import TodoMainer from './components/TodoMainer'
+import TodoHeader from './components/TodoHeader'
 
 
 export default {
+  data () {
+    return {
+      list:[
+        { id: 1, Name: 'run' },
+        { id: 2, Name: 'climb' }
+      ]
+    }
+  },
+  methods:{
+    handle(todoName){
+        // console.log(todoName);
+        this.list.unshift({
+          id:+new Date(),
+          Name:todoName,
+        })
+
+    }
+  },
   components: {
-    XtxShortCut,
-    XtxHeaderNav,
-    XtxBanner,
-    XtxNewGoods,
-    XtxHotBrand,
-    XtxTopic,
-    XtxFooter,
+    TodoFooter,
+    TodoMainer,
+    TodoHeader
   }
 }
 </script>
