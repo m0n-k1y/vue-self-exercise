@@ -1,14 +1,20 @@
 import Vue from 'vue'
 import App from './App.vue'
-import VueRouter from 'vue-router'
 
-Vue.use(VueRouter)
-
-const router = new VueRouter()
 Vue.config.productionTip = false
 
+Vue.directive('focus', {
+  inserted(el) {
+    el.focus()
+  }
+})
 
 new Vue({
   render: h => h(App),
-  router:router,
 }).$mount('#app')
+
+Vue.directive('focus',{
+  "inserted"(el){
+    el.focus()
+  }
+})
