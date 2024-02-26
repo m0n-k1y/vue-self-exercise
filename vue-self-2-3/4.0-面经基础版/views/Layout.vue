@@ -1,19 +1,20 @@
 <template>
   <div class="h5-wrapper">
-    <keep-alive :include="keepArr">
-      <router-view></router-view>
-    </keep-alive>
+    <div class="content">
+      内容
+    </div>
+    <nav class="tabbar">
+      <a href="#/article">面经</a>
+      <a href="#/collect">收藏</a>
+      <a href="#/like">喜欢</a>
+      <a href="#/user">我的</a>
+    </nav>
   </div>
 </template>
 
 <script>
 export default {
-  name: "h5-wrapper",
-  data(){
-    return {
-      keepArr:['LayoutPage']
-    }
-  }
+  name: "LayoutPage",
 }
 </script>
 
@@ -45,9 +46,6 @@ body {
       font-size: 14px;
       color: #333;
       -webkit-tap-highlight-color: transparent;
-      &.router-link-active {
-        color: #fa0;
-      }
     }
   }
 }

@@ -1,19 +1,12 @@
 <template>
   <div class="h5-wrapper">
-    <keep-alive :include="keepArr">
-      <router-view></router-view>
-    </keep-alive>
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
 export default {
   name: "h5-wrapper",
-  data(){
-    return {
-      keepArr:['LayoutPage']
-    }
-  }
 }
 </script>
 
